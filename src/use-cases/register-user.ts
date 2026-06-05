@@ -1,5 +1,5 @@
-import { UserRepository } from "../ports/user-repository";
-import { createUser } from "../entities/user";
+import type { UserRepository } from "../ports/user-repository.js";
+import { createUser } from "../entities/user.js";
 
 type RegisterUserInput = {
     name: string;
