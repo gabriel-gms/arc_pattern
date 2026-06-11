@@ -1,6 +1,6 @@
 import type { Task } from "../entities/task.js"
 
-export type TaskRespository = {
+export type ITaskRepository = {
     remove: (id: string) => Promise<void>,
     deleteAll: () => Promise<void>,
     getAll: () => Promise<Task[]>,
