@@ -1,6 +1,6 @@
 import type { RequestHandler } from "express";
 import { registerTodo } from "../use-cases/register-todo.user-case.js";
-import { taskRepository } from "../ports/task-repository.js";
+import { taskRepositoryPostgre } from "../ports/task-repository.js";
 import { createTaskPresenter } from "../presenters/task-presenter.js";
 
 export const createTaskController: RequestHandler = async (req, res) => {
@@ -16,6 +16,6 @@ export const createTaskController: RequestHandler = async (req, res) => {
         return res.status(400).json({message: 'Title must be at least 3 characters'})
     }
 
-    const task = await registerTodo(title, taskRepository)
+    const task = await registerTodo(title, taskRepositoryPostgre)
     return res.status(201).json(createTaskPresenter(task))
 }

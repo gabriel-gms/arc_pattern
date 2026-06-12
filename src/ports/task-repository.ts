@@ -4,7 +4,7 @@ export type ITaskRepository = {
     save: (task: Task) => Promise<void>
 }
 
-export const taskRepository: ITaskRepository = {
+export const taskRepositoryPostgre: ITaskRepository = {
     save: async (task: Task)=>{
         console.log('Saving task to the database...')
     } 
