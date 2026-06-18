@@ -1,6 +1,6 @@
-import { inMemoryUserRepository } from "../tests/ports/in-memory-user-repository.js";
-import { registerUser } from "./register-user.js";
-import type { User } from "../entities/user.js";
+import { inMemoryUserRepository } from "./in-memory-user-repository.js";
+import { registerUser } from "../users/register-user.js";
+import type { User } from "../users/user.entity.js";
 
 describe('Register User - Use Case', () => {
 

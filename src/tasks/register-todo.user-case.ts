@@ -1,6 +1,6 @@
-import type { Task } from "../entities/task.js";
-import type { ITaskRepository } from "../ports/task-repository.js";
-import { createTask } from "../entities/task.js";
+import type { Task } from "./task.entity.js";
+import type { ITaskRepository } from "./task-repository.js";
+import { createTask } from "./task.entity.js";
 
 export const registerTodo = async (title: string, taskRepository: ITaskRepository) => {
     const task = createTask(title)

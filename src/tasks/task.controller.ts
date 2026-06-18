@@ -1,7 +1,7 @@
 import type { RequestHandler } from "express";
-import { registerTodo } from "../use-cases/register-todo.user-case.js";
-import { taskRepositoryPostgre } from "../ports/task-repository.js";
-import { createTaskPresenter } from "../presenters/task-presenter.js";
+import { registerTodo } from "./register-todo.user-case.js";
+import { taskRepositoryPostgre } from "./task-repository.js";
+import { createTaskPresenter } from "./task-presenter.js";
 
 export const createTaskController: RequestHandler = async (req, res) => {
     const {title} = req.body
