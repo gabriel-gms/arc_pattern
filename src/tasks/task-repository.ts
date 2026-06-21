@@ -13,7 +13,7 @@ export const taskRepositoryPostgre: ITaskRepository = {
         return {
             id: '2',
             title: 'teste',
-            isCompleted: false
+            status: "PENDING"
         } as Task
     }
 }
