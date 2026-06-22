@@ -1,4 +1,6 @@
 import { v4 } from "uuid";
+import { InvalidTransitionError } from "./errors/invalid-transition.error.js";
+import { SmallTitleError } from "./errors/small-title.error.js";
 
 export type TaskStatus = "PENDING" | "IN_PROGRESS" | "DONE" | "CANCELLED"
 
@@ -9,7 +11,7 @@ const TRANSITIONS: Record<TaskStatus, Partial<Record<TaskEvent, TaskStatus>>> = 
     CANCELLED: {}
 }
 
-type TaskEvent = "start" | "complete" | "cancel"
+export type TaskEvent = "start" | "complete" | "cancel"
 
 export type Task = {
     id: string,
@@ -18,8 +20,8 @@ export type Task = {
 }
 
 export const createTask = (title: string): Task => {
-    if(!title){
-        throw new Error('Title is required');
+    if(title.length < 2){
+        throw new SmallTitleError();
     }
 
     return Object.freeze({
@@ -32,6 +34,6 @@ export const createTask = (title: string): Task => {
 export const transitionStatus = (task: Task, event: TaskEvent) => {
     const nextStatus = TRANSITIONS[task.status][event]
 
-    if(!nextStatus) throw new Error("Invalid transition error")
+    if(!nextStatus) throw new InvalidTransitionError(task.status, event)
     return {...task, status: nextStatus}
 }
