@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
-import { InvalidTransitionError } from "./errors/invalid-transition.error.js";
-import { SmallTitleError } from "./errors/small-title.error.js";
+import { InvalidTransitionError } from "../errors/invalid-transition.error.js";
+import { SmallTitleError } from "../errors/small-title.error.js";
 
 export type TaskStatus = "PENDING" | "IN_PROGRESS" | "DONE" | "CANCELLED"
 

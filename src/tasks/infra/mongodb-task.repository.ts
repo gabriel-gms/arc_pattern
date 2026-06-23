@@ -1,5 +1,5 @@
-import type { ITaskRepository } from "../task-repository.js";
-import type { Task } from "../task.entity.js";
+import type { ITaskRepository } from "../domain/task-repository.js";
+import type { Task } from "../domain/task.entity.js";
 
 export const TaskRespositoryMongoDB: ITaskRepository = {
     save: async (task: Task)=>{

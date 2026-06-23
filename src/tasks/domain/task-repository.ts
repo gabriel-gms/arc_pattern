@@ -1,4 +1,4 @@
-import type { Task } from "../tasks/task.entity.js"
+import type { Task } from "./task.entity.js"
 
 export type ITaskRepository = {
     save: (task: Task) => Promise<void>
